@@ -1,5 +1,11 @@
 export class User{
-public firstName! : string;
-public lastName! : string;
-public email! : string;
+
+  constructor(
+    public username: string,
+    public email: string,
+    public password: string,
+    public street: string,
+    public postCode: string,
+    public city: string
+  ) {}
 }

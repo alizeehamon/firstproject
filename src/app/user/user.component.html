@@ -1,1 +1,41 @@
-<p>user works!</p>
+<div class="wrapper">
+  <h2>Registration</h2>
+  <div class="input-box">
+    Username:
+    <input type="text" [formControl]="username" />
+  </div>
+  <div class="input-box">
+    Email:
+    <input type="text" [formControl]="email" />
+  </div>
+  <div class="input-box">
+    Password:
+    <input type="text" [formControl]="password" />
+  </div>
+  Address:
+  <div class="input-box">
+    Street:
+    <input type="text" [formControl]="street" />
+    Postal Code:
+    <input type="text" [formControl]="postCode" />
+    City:
+    <input type="text" [formControl]="city" />
+  </div>
+
+  <button type="submit" (click)="onSubmit()">Save</button>
+</div>
+
+<div *ngIf="user">
+  Username:
+  <p>{{ user.username }}</p>
+  Email:
+  <p>{{ user.email }}</p>
+  Password:
+  <p>{{ user.password }}</p>
+  Street:
+  <p>{{ user.street }}</p>
+  Post Code:
+  <p>{{ user.postCode }}</p>
+  City:
+  <p>{{ user.city }}</p>
+</div>

@@ -7,10 +7,4 @@ import { User } from './models/user.model';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user = new User();
-
-  onSubmit(): void {
-    // Formulaire envoyé
-    console.log(this.user);
-  }
 }
