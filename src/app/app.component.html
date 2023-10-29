@@ -1,47 +1,25 @@
 <div class="wrapper">
   <h2>Registration</h2>
-  <form #myForm="ngForm" (ngSubmit)="myForm.valid && onSubmit()">
+  <form (ngSubmit)="onSubmit()">
     <div class="input-box">
       <input
         type="text"
         placeholder="Enter your first name"
-        [(ngModel)]="user.firstName"
-        #firstName="ngModel"
         name="firstName"
         required
         minlength="3"
         maxlength="15"
       />
     </div>
-    <div *ngIf="firstName.errors && myForm.submitted">
-      <span *ngIf="firstName.errors?.['required']">Le prénom est requis</span>
-      <span *ngIf="firstName.errors?.['minlength']"
-        >La longueur minimale doit être supérieure à 3</span
-      >
-      <span *ngIf="firstName.errors?.['maxlength']"
-        >La longueur maximale doit être inférieure à 15</span
-      >
-    </div>
     <div class="input-box">
       <input
         type="text"
         placeholder="Enter your last name"
-        [(ngModel)]="user.lastName"
-        #lastName="ngModel"
         name="lastName"
         required
         minlength="3"
         maxlength="15"
       />
-    </div>
-    <div *ngIf="lastName.errors && myForm.submitted">
-      <span *ngIf="lastName.errors?.['required']">Le nom est requis</span>
-      <span *ngIf="lastName.errors?.['minlength']"
-        >La longueur minimale doit être supérieure à 3</span
-      >
-      <span *ngIf="lastName.errors?.['maxlength']"
-        >La longueur maximale doit être inférieure à 15</span
-      >
     </div>
     <div class="input-box">
       <input
@@ -50,14 +28,9 @@
         required
         email
         name="email"
-        [(ngModel)]="user.email"
-        #email="ngModel"
       />
     </div>
-    <div *ngIf="lastName.errors && myForm.submitted">
-      <span *ngIf="email.errors?.['required']">L'email est requis</span>
-      <span *ngIf="email.errors?.['email']">L'email doit être valide</span>
-    </div>
+
     <div class="input-box button">
       <input type="Submit" value="Register Now" />
     </div>
