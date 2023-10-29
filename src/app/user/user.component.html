@@ -1,28 +1,30 @@
 <div class="wrapper">
   <h2>Registration</h2>
-  <div class="input-box">
-    Username:
-    <input type="text" [formControl]="username" />
-  </div>
-  <div class="input-box">
-    Email:
-    <input type="text" [formControl]="email" />
-  </div>
-  <div class="input-box">
-    Password:
-    <input type="text" [formControl]="password" />
-  </div>
-  Address:
-  <div class="input-box">
-    Street:
-    <input type="text" [formControl]="street" />
-    Postal Code:
-    <input type="text" [formControl]="postCode" />
-    City:
-    <input type="text" [formControl]="city" />
-  </div>
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div class="input-box">
+      Username:
+      <input type="text" formControlName="username" />
+    </div>
+    <div class="input-box" formGroupName="credentials">
+      <p>Credentials</p>
+      Email:
+      <input type="text" formControlName="email" />
+      Password:
+      <input type="text" formControlName="password" />
+    </div>
 
-  <button type="submit" (click)="onSubmit()">Save</button>
+    <p>Address</p>
+    <div class="input-box" formGroupName="address">
+      Street:
+      <input type="text" formControlName="street" />
+      Postal Code:
+      <input type="text" formControlName="postCode" />
+      City:
+      <input type="text" formControlName="city" />
+
+      <button type="submit" [disabled]="!userForm.valid">Save</button>
+    </div>
+  </form>
 </div>
 
 <div *ngIf="user">
