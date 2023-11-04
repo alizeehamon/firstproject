@@ -5,5 +5,11 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
+  private role: string = "USER";
+
   constructor() { }
+
+  getRole(): string {
+    return this.role;
+  }
 }
